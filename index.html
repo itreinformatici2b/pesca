@@ -1,1 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <base target="_self">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Commercial Fishing: Industry & Techniques | Educational Presentation</title>
+ <meta name="description" content="An educational presentation on commercial fishing industry, tools, techniques, and sustainable practices in our seas">
+ <script src="https://cdn.tailwindcss.com"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+ <script>
+ tailwind.config = {
+ theme: {
+ extend: {
+ colors: {
+ ocean: {
+ light: "#4cc9f0",
+ DEFAULT: "#4361ee",
+ dark: "#3a0ca3",
+ deep: "#1d3557"
+ },
+ sand: "#f1faee",
+ coral: "#f72585",
+ seaweed: "#2a9d8f"
+ },
+ fontFamily: {
+ 'montserrat': ['Montserrat', 'sans-serif'],
+ 'opensans': ['Open Sans', 'sans-serif']
+ },
+ animation: {
+ 'float': 'float 6s ease-in-out infinite',
+ 'wave': 'wave 8s linear infinite',
+ 'fadeIn': 'fadeIn 1s ease-out',
+ 'slideIn': 'slideIn 0.8s ease-out'
+ },
+ keyframes: {
+ float: {
+ '0%, 100%': { transform: 'translateY(0px)' },
+ '50%': { transform: 'translateY(-20px)' }
+ },
+ wave: {
+ '0%': { transform: 'translateX(0)' },
+ '100%': { transform: 'translateX(-100%)' }
+ },
+ fadeIn: {
+ '0%': { opacity: '0' },
+ '100%': { opacity: '1' }
+ },
+ slideIn: {
+ '0%': { transform: 'translateY(30px)', opacity: '0' },
+ '100%': { transform: 'translateY(0)', opacity: '1' }
+ }
+ }
+ }
+ }
+ }
+ </script>
+ <style>
+ .wave-pattern {
+ background: linear-gradient(90deg, #4361ee 0%, #3a0ca3 50%, #1d3557 100%);
+ background-size: 200% 100%;
+ animation: wave 8s linear infinite;
+ }
+ 
+ .section-transition {
+ transition: all 0.5s ease;
+ }
+ 
+ .card-hover {
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+ 
+ .card-hover:hover {
+ transform: translateY(-10px);
+ box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .nav-active {
+ position: relative;
+ }
+ 
+ .nav-active::after {
+ content: '';
+ position: absolute;
+ bottom: -5px;
+ left: 0;
+ width: 100%;
+ height: 3px;
+ background: #4cc9f0;
+ border-radius: 2px;
+ }
+ 
+ .parallax-bg {
+ background-attachment: fixed;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ }
+ </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-ocean-light to-sand font-opensans">
+ <!-- Navigation -->
+ <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm shadow-lg z-50">
+ <div class="container mx-auto px-6 py-4">
+ <div class="flex flex-col md:flex-row justify-between items-center">
+ <div class="flex items-center mb-4 md:mb-0">
+ <div class="w-10 h-10 bg-gradient-to-r from-ocean to-ocean-dark rounded-full flex items-center justify-center mr-3">
+ <i class="fas fa-anchor text-white text-lg"></i>
+ </div>
+ <h1 class="text-2xl font-bold font-montserrat text-ocean-dark">Commercial Fishing</h1>
+ </div>
+ 
+ <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+ <a href="#industry" class="nav-link text-gray-700 hover:text-ocean font-medium transition-colors duration-300" data-section="industry">Industry</a>
+ <a href="#tools" class="nav-link text-gray-700 hover:text-ocean font-medium transition-colors duration-300" data-section="tools">Tools</a>
+ <a href="#our-seas" class="nav-link text-gray-700 hover:text-ocean font-medium transition-colors duration-300" data-section="our-seas">Our Seas</a>
+ <a href="#traps" class="nav-link text-gray-700 hover:text-ocean font-medium transition-colors duration-300" data-section="traps">Hooks & Traps</a>
+ </div>
+ 
+ <button id="menu-toggle" class="md:hidden text-ocean-dark">
+ <i class="fas fa-bars text-2xl"></i>
+ </button>
+ </div>
+ </div>
+ </nav>
 
+ <!-- Hero Section -->
+ <section class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
+ <div class="container mx-auto px-6">
+ <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+ <div class="animate-fadeIn">
+ <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-montserrat text-ocean-dark mb-6">
+ Commercial Fishing:<br>
+ <span class="text-ocean">Industry & Techniques</span>
+ </h1>
+ <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+ An educational journey through the world of commercial fishing, exploring modern techniques, 
+ sustainable practices, and the vital role of fishing in our global economy and food supply.
+ </p>
+ <div class="flex flex-wrap gap-4">
+ <button class="bg-ocean hover:bg-ocean-dark text-white font-medium px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+ Start Exploration
+ </button>
+ <button class="border-2 border-ocean text-ocean hover:bg-ocean hover:text-white font-medium px-8 py-3 rounded-full transition-all duration-300">
+ Watch Video
+ </button>
+ </div>
+ </div>
+ 
+ <div class="relative animate-float">
+ <div class="relative z-10">
+ <img 
+ src="https://picsum.photos/600/400?random=1" 
+ alt="Commercial fishing vessel at sea" 
+ class="rounded-2xl shadow-2xl w-full"
+ loading="lazy"
+ />
+ </div>
+ <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-coral/20 rounded-full blur-xl"></div>
+ <div class="absolute -top-6 -left-6 w-48 h-48 bg-ocean-light/30 rounded-full blur-xl"></div>
+ </div>
+ </div>
+ </div>
+ 
+ <!-- Wave Divider -->
+ <div class="absolute bottom-0 left-0 right-0 h-12 wave-pattern"></div>
+ </section>
+
+ <!-- Industry Section -->
+ <section id="industry" class="py-20 bg-white section-transition">
+ <div class="container mx-auto px-6">
+ <div class="text-center mb-16 animate-slideIn">
+ <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-ocean-dark mb-4">Fishing Industry</h2>
+ <div class="w-24 h-1 bg-ocean mx-auto mb-6"></div>
+ <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+ The commercial fishing industry is a complex global network that provides food, employment, 
+ and economic stability to coastal communities worldwide.
+ </p>
+ </div>
+ 
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+ <div class="card-hover bg-gradient-to-br from-sand to-white p-8 rounded-2xl shadow-lg">
+ <div class="w-16 h-16 bg-ocean-light/20 rounded-full flex items-center justify-center mb-6">
+ <i class="fas fa-globe-americas text-ocean text-2xl"></i>
+ </div>
+ <h3 class="text-xl font-bold font-montserrat text-ocean-dark mb-4">Global Impact</h3>
+ <p class="text-gray-600 mb-4">
+ Over 200 million people depend on fishing for their livelihoods, with annual catches exceeding 
+ 90 million metric tons worldwide.
+ </p>
+ <div class="flex items-center text-seaweed">
+ <span class="font-bold text-lg">$362B</span>
+ <span class="ml-2">Global Market Value</span>
+ </div>
+ </div>
+ 
+ <div class="card-hover bg-gradient-to-br from-sand to-white p-8 rounded-2xl shadow-lg">
+ <div class="w-16 h-16 bg-ocean-light/20 rounded-full flex items-center justify-center mb-6">
+ <i class="fas fa-fish text-ocean text-2xl"></i>
+ </div>
+ <h3 class="text-xl font-bold font-montserrat text-ocean-dark mb-4">Species Diversity</h3>
+ <p class="text-gray-600 mb-4">
+ Commercial fishing targets over 500 species, from small pelagic fish to large deep-sea creatures, 
+ each requiring specialized techniques.
+ </p>
+ <div class="flex items-center text-seaweed">
+ <span class="font-bold text-lg">500+</span>
+ <span class="ml-2">Species Targeted</span>
+ </div>
+ </div>
+ 
+ <div class="card-hover bg-gradient-to-br from-sand to-white p-8 rounded-2xl shadow-lg">
+ <div class="w-16 h-16 bg-ocean-light/20 rounded-full flex items-center justify-center mb-6">
+ <i class="fas fa-ship text-ocean text-2xl"></i>
+ </div>
+ <h3 class="text-xl font-bold font-montserrat text-ocean-dark mb-4">Fleet Operations</h3>
+ <p class="text-gray-600 mb-4">
+ Modern fishing fleets range from small artisanal boats to industrial super-trawlers equipped with 
+ advanced navigation and fish-finding technology.
+ </p>
+ <div class="flex items-center text-seaweed">
+ <span class="font-bold text-lg">4.6M</span>
+ <span class="ml-2">Fishing Vessels</span>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="mt-16 bg-gradient-to-r from-ocean-light/20 to-ocean/20 p-8 rounded-2xl">
+ <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+ <div>
+ <h3 class="text-2xl font-bold font-montserrat text-ocean-dark mb-4">Sustainable Practices</h3>
+ <p class="text-gray-700 mb-6">
+ The industry is evolving toward more sustainable methods, including quota systems, 
+ selective fishing gear, and marine protected areas to ensure long-term viability.
+ </p>
+ <ul class="space-y-3">
+ <li class="flex items-center">
+ <i class="fas fa-check-circle text-seaweed mr-3"></i>
+ <span>Certification programs (MSC, ASC)</span>
+ </li>
+ <li class="flex items-center">
+ <i class="fas fa-check-circle text-seaweed mr-3"></i>
+ <span>Bycatch reduction technologies</span>
+ </li>
+ <li class="flex items-center">
+ <i class="fas fa-check-circle text-seaweed mr-3"></i>
+ <span>Ecosystem-based management</span>
+ </li>
+ </ul>
+ </div>
+ <div>
+ <img 
+ src="https://picsum.photos/500/350?random=2" 
+ alt="Sustainable fishing practices" 
+ class="rounded-xl shadow-lg w-full"
+ loading="lazy"
+ />
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Tools Section -->
+ <section id="tools" class="py-20 bg-gradient-to-b from-white to-sand section-transition">
+ <div class="container mx-auto px-6">
+ <div class="text-center mb-16 animate-slideIn">
+ <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-ocean-dark mb-4">Fishing Tools & Technology</h2>
+ <div class="w-24 h-1 bg-ocean mx-auto mb-6"></div>
+ <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+ Modern commercial fishing relies on sophisticated tools and technology to locate, catch, 
+ and process fish efficiently and sustainably.
+ </p>
+ </div>
+ 
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+ <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+ <div class="text-center mb-4">
+ <div class="w-20 h-20 bg-ocean-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+ <i class="fas fa-satellite-dish text-ocean text-3xl"></i>
+ </div>
+ <h4 class="font-bold font-montserrat text-ocean-dark">Sonar Systems</h4>
+ </div>
+ <p class="text-gray-600 text-sm">
+ Advanced sonar technology detects fish schools up to 2km away, providing real-time 3D imaging.
+ </p>
+ </div>
+ 
+ <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+ <div class="text-center mb-4">
+ <div class="w-20 h-20 bg-ocean-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+ <i class="fas fa-satellite text-ocean text-3xl"></i>
+ </div>
+ <h4 class="font-bold font-montserrat text-ocean-dark">GPS Navigation</h4>
+ </div>
+ <p class="text-gray-600 text-sm">
+ Precise satellite navigation allows vessels to return to productive fishing grounds accurately.
+ </p>
+ </div>
+ 
+ <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+ <div class="text-center mb-4">
+ <div class="w-20 h-20 bg-ocean-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+ <i class="fas fa-water text-ocean text-3xl"></i>
+ </div>
+ <h4 class="font-bold font-montserrat text-ocean-dark">Echo Sounders</h4>
+ </div>
+ <p class="text-gray-600 text-sm">
+ Measures water depth and detects fish by sending sound pulses and analyzing their echoes.
+ </p>
+ </div>
+ 
+ <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+ <div class="text-center mb-4">
+ <div class="w-20 h-20 bg-ocean-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+ <i class="fas fa-thermometer-half text-ocean text-3xl"></i>
+ </div>
+ <h4 class="font-bold font-montserrat text-ocean-dark">Ocean Sensors</h4>
+ </div>
+ <p class="text-gray-600 text-sm">
+ Monitors water temperature, salinity, and chlorophyll levels to identify optimal fishing conditions.
+ </p>
+ </div>
+ </div>
+ 
+ <div class="bg-gradient-to-r from-ocean-dark to-ocean rounded-2xl p-8 text-white">
+ <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+ <div>
+ <h3 class="text-2xl font-bold font-montserrat mb-4">Modern Fishing Vessels</h3>
+ <p class="mb-6 opacity-90">
+ Today's commercial fishing vessels are marvels of engineering, equipped with processing facilities, 
+ freezing capabilities, and advanced safety systems for extended operations at sea.
+ </p>
+ <div class="grid grid-cols-2 gap-4">
+ <div class="bg-white/10 p-4 rounded-lg">
+ <div class="text-2xl font-bold">50-150m</div>
+ <div class="text-sm opacity-80">Vessel Length</div>
+ </div>
+ <div class="bg-white/10 p-4 rounded-lg">
+ <div class="text-2xl font-bold">30-90 days</div>
+ <div class="text-sm opacity-80">Operation Duration</div>
+ </div>
+ </div>
+ </div>
+ <div>
+ <img 
+ src="https://picsum.photos/500/300?random=3" 
+ alt="Modern fishing vessel" 
+ class="rounded-xl shadow-lg w-full"
+ loading="lazy"
+ />
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Our Seas Section -->
+ <section id="our-seas" class="py-20 bg-white section-transition">
+ <div class="container mx-auto px-6">
+ <div class="text-center mb-16 animate-slideIn">
+ <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-ocean-dark mb-4">Fishing in Our Seas</h2>
+ <div class="w-24 h-1 bg-ocean mx-auto mb-6"></div>
+ <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+ The Mediterranean and surrounding seas host diverse fishing traditions and modern commercial operations, 
+ balancing economic needs with environmental conservation.
+ </p>
+ </div>
+ 
+ <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+ <div class="lg:col-span-2">
+ <div class="bg-gradient-to-br from-ocean-light/10 to-ocean/10 p-8 rounded-2xl h-full">
+ <h3 class="text-2xl font-bold font-montserrat text-ocean-dark mb-6">Mediterranean Fisheries</h3>
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+ <div>
+ <h4 class="font-bold text-lg text-ocean-dark mb-3">Key Species</h4>
+ <ul class="space-y-2">
+ <li class="flex items-center">
+ <div class="w-3 h-3 bg-seaweed rounded-full mr-3"></div>
+ <span>Bluefin Tuna</span>
+ </li>
+ <li class="flex items-center">
+ <div class="w-3 h-3 bg-seaweed rounded-full mr-3"></div>
+ <span>European Anchovy</span>
+ </li>
+ <li class="flex items-center">
+ <div class="w-3 h-3 bg-seaweed rounded-full mr-3"></div>
+ <span>Mediterranean Swordfish</span>
+ </li>
+ <li class="flex items-center">
+ <div class="w-3 h-3 bg-seaweed rounded-full mr-3"></div>
+ <span>Red Mullet</span>
+ </li>
+ </ul>
+ </div>
+ <div>
+ <h4 class="font-bold text-lg text-ocean-dark mb-3">Fishing Methods</h4>
+ <ul class="space-y-2">
+ <li class="flex items-center">
+ <div class="w-3 h-3 bg-coral rounded-full mr-3"></div>
+ <span>Purse Seining</span>
+ </li>
+ <li class="flex items-center">
+ <div class="w-3 h-3 bg-coral rounded-full mr-3"></div>
+ <span>Longlining</span>
+ </li>
+ <li class="flex items-center">
+ <div class="w-3 h-3 bg-coral rounded-full mr-3"></div>
+ <span>Trawling</span>
+ </li>
+ <li class="flex items-center">
+ <div class="w-3 h-3 bg-coral rounded-full mr-3"></div>
+ <span>Gillnetting</span>
+ </li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="bg-gradient-to-b from-seaweed/10 to-ocean-light/10 p-8 rounded-2xl">
+ <h3 class="text-2xl font-bold font-montserrat text-ocean-dark mb-6">Conservation Status</h3>
+ <div class="space-y-6">
+ <div>
+ <div class="flex justify-between mb-2">
+ <span class="font-medium">Fish Stocks</span>
+ <span class="font-bold text-seaweed">62%</span>
+ </div>
+ <div class="w-full bg-gray-200 rounded-full h-2">
+ <div class="bg-seaweed h-2 rounded-full" style="width: 62%"></div>
+ </div>
+ <div class="text-sm text-gray-500 mt-1">Overfished in Mediterranean</div>
+ </div>
+ 
+ <div>
+ <div class="flex justify-between mb-2">
+ <span class="font-medium">Protected Areas</span>
+ <span class="font-bold text-seaweed">8.3%</span>
+ </div>
+ <div class="w-full bg-gray-200 rounded-full h-2">
+ <div class="bg-seaweed h-2 rounded-full" style="width: 8.3%"></div>
+ </div>
+ <div class="text-sm text-gray-500 mt-1">Of Mediterranean Sea</div>
+ </div>
+ 
+ <div>
+ <div class="flex justify-between mb-2">
+ <span class="font-medium">Sustainable Catch</span>
+ <span class="font-bold text-seaweed">45%</span>
+ </div>
+ <div class="w-full bg-gray-200 rounded-full h-2">
+ <div class="bg-seaweed h-2 rounded-full" style="width: 45%"></div>
+ </div>
+ <div class="text-sm text-gray-500 mt-1">Certified sustainable fisheries</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="bg-gradient-to-r from-seaweed/20 to-ocean-light/20 p-8 rounded-2xl">
+ <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+ <div>
+ <img 
+ src="https://picsum.photos/500/350?random=4" 
+ alt="Traditional fishing in Mediterranean" 
+ class="rounded-xl shadow-lg w-full"
+ loading="lazy"
+ />
+ </div>
+ <div>
+ <h3 class="text-2xl font-bold font-montserrat text-ocean-dark mb-4">Traditional vs Modern</h3>
+ <p class="text-gray-700 mb-6">
+ While industrial fishing dominates global markets, traditional artisanal fishing remains vital 
+ in Mediterranean communities, using selective methods with lower environmental impact.
+ </p>
+ <div class="grid grid-cols-2 gap-4">
+ <div class="bg-white p-4 rounded-lg text-center">
+ <div class="text-2xl font-bold text-seaweed">~75%</div>
+ <div class="text-sm text-gray-600">Artisanal Fleet</div>
+ </div>
+ <div class="bg-white p-4 rounded-lg text-center">
+ <div class="text-2xl font-bold text-seaweed">~25%</div>
+ <div class="text-sm text-gray-600">Industrial Fleet</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Hooks & Traps Section -->
+ <section id="traps" class="py-20 bg-gradient-to-b from-sand to-white section-transition">
+ <div class="container mx-auto px-6">
+ <div class="text-center mb-16 animate-slideIn">
+ <h2 class="text-3xl md:text-4xl font-bold font-montserrat text-ocean-dark mb-4">Hooks, Lines & Traps</h2>
+ <div class="w-24 h-1 bg-ocean mx-auto mb-6"></div>
+ <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+ Selective fishing methods like hooks and traps target specific species while minimizing bycatch 
+ and environmental impact compared to non-selective methods.
+ </p>
+ </div>
+ 
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+ <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+ <div class="h-48 overflow-hidden">
+ <img 
+ src="https://picsum.photos/400/250?random=5" 
+ alt="Longline fishing method" 
+ class="w-full h-full object-cover"
+ loading="lazy"
+ />
+ </div>
+ <div class="p-6">
+ <div class="flex items-center mb-4">
+ <div class="w-10 h-10 bg-ocean-light/20 rounded-full flex items-center justify-center mr-3">
+ <i class="fas fa-fish text-ocean"></i>
+ </div>
+ <h3 class="text-xl font-bold font-montserrat text-ocean-dark">Longlining</h3>
+ </div>
+ <p class="text-gray-600 mb-4">
+ Main line with thousands of baited hooks deployed over miles, primarily targeting 
+ tuna, swordfish, and halibut.
+ </p>
+ <div class="flex justify-between text-sm">
+ <span class="text-seaweed font-medium">Selectivity: High</span>
+ <span class="text-gray-500">Bycatch: Medium</span>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+ <div class="h-48 overflow-hidden">
+ <img 
+ src="https://picsum.photos/400/250?random=6" 
+ alt="Pots and traps fishing" 
+ class="w-full h-full object-cover"
+ loading="lazy"
+ />
+ </div>
+ <div class="p-6">
+ <div class="flex items-center mb-4">
+ <div class="w-10 h-10 bg-ocean-light/20 rounded-full flex items-center justify-center mr-3">
+ <i class="fas fa-cube text-ocean"></i>
+ </div>
+ <h3 class="text-xl font-bold font-montserrat text-ocean-dark">Pots & Traps</h3>
+ </div>
+ <p class="text-gray-600 mb-4">
+ Baited cages or pots that capture lobsters, crabs, and fish alive, allowing undersized 
+ animals to be released unharmed.
+ </p>
+ <div class="flex justify-between text-sm">
+ <span class="text-seaweed font-medium">Selectivity: Very High</span>
+ <span class="text-gray-500">Bycatch: Low</span>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+ <div class="h-48 overflow-hidden">
+ <img 
+ src="https://picsum.photos/400/250?random=7" 
+ alt="Handline fishing" 
+ class="w-full h-full object-cover"
+ loading="lazy"
+ />
+ </div>
+ <div class="p-6">
+ <div class="flex items-center mb-4">
+ <div class="w-10 h-10 bg-ocean-light/20 rounded-full flex items-center justify-center mr-3">
+ <i class="fas fa-hand-paper text-ocean"></i>
+ </div>
+ <h3 class="text-xl font-bold font-montserrat text-ocean-dark">Handlines & Poles</h3>
+ </div>
+ <p class="text-gray-600 mb-4">
+ Simple single-hook methods used by artisanal fishers, offering maximum selectivity 
+ and minimal habitat damage.
+ </p>
+ <div class="flex justify-between text-sm">
+ <span class="text-seaweed font-medium">Selectivity: Highest</span>
+ <span class="text-gray-500">Bycatch: Very Low</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="bg-gradient-to-r from-ocean-dark to-seaweed rounded-2xl p-8 text-white">
+ <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+ <div>
+ <h3 class="text-2xl font-bold font-montserrat mb-4">Innovation in Fishing Gear</h3>
+ <p class="mb-6 opacity-90">
+ Recent innovations include circle hooks that reduce turtle bycatch, escape panels in traps, 
+ and LED lights that attract target species while repelling others.
+ </p>
+ <div class="space-y-4">
+ <div class="flex items-center">
+ <i class="fas fa-check-circle text-ocean-light mr-3"></i>
+ <span>Circle hooks reduce sea turtle mortality by 90%</span>
+ </div>
+ <div class="flex items-center">
+ <i class="fas fa-check-circle text-ocean-light mr-3"></i>
+ <span>Escape panels allow undersized crabs to exit traps</span>
+ </div>
+ <div class="flex items-center">
+ <i class="fas fa-check-circle text-ocean-light mr-3"></i>
+ <span>LED lights increase target catch while reducing bycatch</span>
+ </div>
+ </div>
+ </div>
+ <div class="relative">
+ <img 
+ src="https://picsum.photos/500/300?random=8" 
+ alt="Innovative fishing gear" 
+ class="rounded-xl shadow-lg w-full"
+ loading="lazy"
+ />
+ <div class="absolute -top-4 -right-4 w-20 h-20 bg-coral/20 rounded-full blur-xl"></div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Footer -->
+ <footer class="bg-ocean-dark text-white py-12">
+ <div class="container mx-auto px-6">
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+ <div>
+ <div class="flex items-center mb-6">
+ <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3">
+ <i class="fas fa-anchor text-white"></i>
+ </div>
+ <h3 class="text-xl font-bold font-montserrat">Commercial Fishing</h3>
+ </div>
+ <p class="text-white/80 text-sm">
+ An educational presentation on the commercial fishing industry, its techniques, 
+ and sustainable practices for future generations.
+ </p>
+ </div>
+ 
+ <div>
+ <h4 class="text-lg font-bold font-montserrat mb-6">Presentation Sections</h4>
+ <ul class="space-y-3">
+ <li><a href="#industry" class="text-white/80 hover:text-white transition-colors">Industry Overview</a></li>
+ <li><a href="#tools" class="text-white/80 hover:text-white transition-colors">Tools & Technology</a></li>
+ <li><a href="#our-seas" class="text-white/80 hover:text-white transition-colors">Our Seas</a></li>
+ <li><a href="#traps" class="text-white/80 hover:text-white transition-colors">Hooks & Traps</a></li>
+ </ul>
+ </div>
+ 
+ <div>
+ <h4 class="text-lg font-bold font-montserrat mb-6">Resources</h4>
+ <ul class="space-y-3">
+ <li><a href="#" class="text-white/80 hover:text-white transition-colors">Research Papers</a></li>
+ <li><a href="#" class="text-white/80 hover:text-white transition-colors">Statistical Data</a></li>
+ <li><a href="#" class="text-white/80 hover:text-white transition-colors">Video Library</a></li>
+ <li><a href="#" class="text-white/80 hover:text-white transition-colors">Glossary</a></li>
+ </ul>
+ </div>
+ 
+ <div>
+ <h4 class="text-lg font-bold font-montserrat mb-6">Contact</h4>
+ <p class="text-white/80 text-sm mb-4">
+ For educational materials or presentation inquiries:
+ </p>
+ <div class="space-y-2">
+ <div class="flex items-center">
+ <i class="fas fa-envelope text-ocean-light mr-3"></i>
+ <span class="text-white/80">education@fishingpresentation.edu</span>
+ </div>
+ <div class="flex items-center">
+ <i class="fas fa-phone text-ocean-light mr-3"></i>
+ <span class="text-white/80">+39 02 1234 5678</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="pt-8 border-t border-white/20">
+ <div class="flex flex-col md:flex-row justify-between items-center">
+ <p class="text-white/60 text-sm mb-4 md:mb-0">
+ © 2024 Commercial Fishing Educational Presentation. All educational materials.
+ </p>
+ <div class="flex space-x-4">
+ <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+ <i class="fab fa-facebook-f"></i>
+ </a>
+ <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+ <i class="fab fa-twitter"></i>
+ </a>
+ <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+ <i class="fab fa-instagram"></i>
+ </a>
+ <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+ <i class="fab fa-youtube"></i>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </footer>
+
+ <!-- Back to Top Button -->
+ <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-ocean text-white rounded-full shadow-lg flex items-center justify-center hover:bg-ocean-dark transition-all duration-300 opacity-0 transform translate-y-10">
+ <i class="fas fa-chevron-up"></i>
+ </button>
+
+ <script>
+ // Define presentation data
+ const presentationData = {
+ "industry": {
+ "title": "Fishing Industry",
+ "stats": [
+ { "label": "Global Employment", "value": "200M+", "icon": "users" },
+ { "label": "Annual Catch", "value": "90M tons", "icon": "weight" },
+ { "label": "Market Value", "value": "$362B", "icon": "dollar-sign" },
+ { "label": "Fishing Vessels", "value": "4.6M", "icon": "ship" }
+ ]
+ },
+ "tools": {
+ "title": "Fishing Tools",
+ "technologies": [
+ { "name": "Sonar Systems", "description": "Fish detection up to 2km", "icon": "satellite-dish" },
+ { "name": "GPS Navigation", "description": "Precision positioning", "icon": "satellite" },
+ { "name": "Echo Sounders", "description": "Depth and fish detection", "icon": "water" },
+ { "name": "Ocean Sensors", "description": "Environmental monitoring", "icon": "thermometer-half" }
+ ]
+ },
+ "our-seas": {
+ "title": "Our Seas",
+ "mediterraneanSpecies": [
+ "Bluefin Tuna",
+ "European Anchovy", 
+ "Mediterranean Swordfish",
+ "Red Mullet",
+ "European Seabass",
+ "Common Octopus"
+ ]
+ },
+ "traps": {
+ "title": "Hooks & Traps",
+ "methods": [
+ { "name": "Longlining", "selectivity": "High", "bycatch": "Medium" },
+ { "name": "Pots & Traps", "selectivity": "Very High", "bycatch": "Low" },
+ { "name": "Handlines", "selectivity": "Highest", "bycatch": "Very Low" },
+ { "name": "Trolling", "selectivity": "High", "bycatch": "Low" }
+ ]
+ }
+ };
+
+ // Navigation functionality
+ document.addEventListener("DOMContentLoaded", function() {
+ // Smooth scrolling for navigation links
+ const navLinks = document.querySelectorAll(".nav-link");
+ const sections = document.querySelectorAll("section");
+ const backToTopBtn = document.getElementById("back-to-top");
+ const menuToggle = document.getElementById("menu-toggle");
+ const nav = document.querySelector("nav");
+ 
+ // Mobile menu toggle
+ if (menuToggle) {
+ menuToggle.addEventListener("click", function() {
+ const navMenu = document.querySelector("nav .flex-wrap");
+ navMenu.classList.toggle("hidden");
+ navMenu.classList.toggle("flex");
+ });
+ }
+ 
+ // Update active nav link based on scroll position
+ function updateActiveNavLink() {
+ let current = "";
+ 
+ sections.forEach(section => {
+ const sectionTop = section.offsetTop - 100;
+ const sectionHeight = section.clientHeight;
+ 
+ if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+ current = section.getAttribute("id");
+ }
+ });
+ 
+ navLinks.forEach(link => {
+ link.classList.remove("nav-active", "text-ocean");
+ link.classList.add("text-gray-700");
+ 
+ if (link.getAttribute("data-section") === current) {
+ link.classList.add("nav-active", "text-ocean");
+ link.classList.remove("text-gray-700");
+ }
+ });
+ 
+ // Show/hide back to top button
+ if (window.scrollY > 300) {
+ backToTopBtn.classList.remove("opacity-0", "translate-y-10");
+ backToTopBtn.classList.add("opacity-100", "translate-y-0");
+ } else {
+ backToTopBtn.classList.remove("opacity-100", "translate-y-0");
+ backToTopBtn.classList.add("opacity-0", "translate-y-10");
+ }
+ }
+ 
+ // Smooth scroll to section
+ navLinks.forEach(link => {
+ link.addEventListener("click", function(e) {
+ e.preventDefault();
+ const targetId = this.getAttribute("data-section");
+ const targetSection = document.getElementById(targetId);
+ 
+ if (targetSection) {
+ window.scrollTo({
+ top: targetSection.offsetTop - 80,
+ behavior: "smooth"
+ });
+ 
+ // Close mobile menu if open
+ if (window.innerWidth < 768) {
+ const navMenu = document.querySelector("nav .flex-wrap");
+ navMenu.classList.add("hidden");
+ navMenu.classList.remove("flex");
+ }
+ }
+ });
+ });
+ 
+ // Back to top functionality
+ backToTopBtn.addEventListener("click", function() {
+ window.scrollTo({
+ top: 0,
+ behavior: "smooth"
+ });
+ });
+ 
+ // Parallax effect for hero section
+ window.addEventListener("scroll", function() {
+ const scrolled = window.pageYOffset;
+ const hero = document.querySelector("section:first-of-type");
+ 
+ if (hero) {
+ hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+ }
+ 
+ updateActiveNavLink();
+ });
+ 
+ // Initialize
+ updateActiveNavLink();
+ 
+ // Add animation to cards on scroll
+ const observerOptions = {
+ threshold: 0.1,
+ rootMargin: "0px 0px -50px 0px"
+ };
+ 
+ const observer = new IntersectionObserver(function(entries) {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add("animate-slideIn");
+ }
+ });
+ }, observerOptions);
+ 
+ // Observe all cards
+ document.querySelectorAll(".card-hover").forEach(card => {
+ observer.observe(card);
+ });
+ 
+ // Interactive stats counter
+ function animateCounter(element, target) {
+ let current = 0;
+ const increment = target / 50;
+ const timer = setInterval(() => {
+ current += increment;
+ if (current >= target) {
+ element.textContent = target;
+ clearInterval(timer);
+ } else {
+ element.textContent = Math.floor(current);
+ }
+ }, 30);
+ }
+ 
+ // Animate stats when they come into view
+ const statsObserver = new IntersectionObserver(function(entries) {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ const statElements = entry.target.querySelectorAll(".stat-value");
+ statElements.forEach(el => {
+ const target = parseInt(el.getAttribute("data-target"));
+ if (!isNaN(target)) {
+ animateCounter(el, target);
+ }
+ });
+ }
+ });
+ }, { threshold: 0.5 });
+ 
+ // Observe stats sections
+ document.querySelectorAll(".bg-gradient-to-br").forEach(section => {
+ if (section.textContent.includes("$") || section.textContent.includes("%")) {
+ statsObserver.observe(section);
+ }
+ });
+ 
+ // Add hover effects to navigation
+ navLinks.forEach(link => {
+ link.addEventListener("mouseenter", function() {
+ this.style.transform = "translateY(-2px)";
+ });
+ 
+ link.addEventListener("mouseleave", function() {
+ this.style.transform = "translateY(0)";
+ });
+ });
+ 
+ // Prevent default anchor behavior
+ document.querySelectorAll("a").forEach(anchor => {
+ if (anchor.getAttribute("href") && anchor.getAttribute("href").startsWith("#")) {
+ anchor.addEventListener("click", function(e) {
+ e.preventDefault();
+ });
+ }
+ });
+ });
+ </script>
+</body>
+</html>
